@@ -17,10 +17,11 @@ class App extends React.Component {
       currentUser: null
     };
   }
-
+ 
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+   
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -35,7 +36,8 @@ class App extends React.Component {
         });
       }
 
-     else {this.setState({ currentUser: userAuth })} ;
+     else {this.setState({ currentUser: userAuth })}
+      ;
     });
   }
 
@@ -52,6 +54,7 @@ class App extends React.Component {
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>
+     
       </div>
     );
   }
