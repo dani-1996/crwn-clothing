@@ -6,6 +6,7 @@ import  CheckoutItem from "../../components/checkout-item/checkout-item.componen
 
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors'
 
+import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component"
 import "./checkout.styles.scss"
 
 export const CheckoutPage = ({cartItems, total}) => {
@@ -35,6 +36,11 @@ export const CheckoutPage = ({cartItems, total}) => {
                </div>
             
            }
+           <StripeCheckoutButton price={total}/>
+           <span style={{color:"red", fontSize:"30px"}} >Zur Testzahlung nutze die Kartennummer 4242424242424242 <br/>
+                CVC: 123 <br/>
+                Datum: beliebiges Datum in der Zukunft
+           </span>
         </div>
     )
 }
